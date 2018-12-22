@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="org.lanqiao.mapper.IUserMapper">
+    <insert id="insertUser" parameterType="org.lanqiao.pojo.User">
+          insert into tb_user(username,age,sex,email) values (#{username},#{age},#{sex},#{email})
+    </insert>
+    <delete id="deleteUser">
+        delete from tb_user
+        <where>
+            id=#{id}
+        </where>
+    </delete>
+    <update id="updateUser">
+        update tb_user set username=#{username},age=#{age},sex=#{sex},email=#{email} where id = #{id}
+    </update>
+    <select id="getUser"  resultType="org.lanqiao.pojo.User">
+        select * from tb_user where id=#{id}
+    </select>
+    <select id="getUserList" resultType="org.lanqiao.pojo.User">
+        select * from tb_user
+    </select>
+</mapper>
